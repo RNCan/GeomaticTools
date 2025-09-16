@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="ImageCalculator.cbp">
+			<Depends filename="../../../WBSFMultiPlatform/build/cb/Geomatic/Geomatic.cbp" />
+			<Depends filename="../../../WBSFMultiPlatform/build/cb/Basic/Basic.cbp" />
+		</Project>
+		<Project filename="../../../WBSFMultiPlatform/build/cb/Geomatic/Geomatic.cbp" />
+		<Project filename="../../../WBSFMultiPlatform/build/cb/Basic/Basic.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

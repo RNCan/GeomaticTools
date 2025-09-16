@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ImageCalculator" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debugx64/ImageCalculator" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debugx64/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-g" />
+					<Add option="-std=gnu++20" />
+					<Add option="-ggdb" />
+					<Add option="-pthread" />
+					<Add option="-fopenmp" />
+					<Add option="-Wno-unknown-pragmas" />
+					<Add option="-Wno-deprecated-enum-enum-conversion" />
+					<Add option="-Wno-overloaded-virtual" />
+					<Add option="-Wno-unused-result" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DBOOST_PROCESS_USE_STD_FS" />
+					<Add option="-DMUPARSER_STATIC" />
+					<Add directory="../../../WBSFMultiPlatform/src" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+					<Add library="libGeomatic.a" />
+					<Add library="libBasic.a" />
+					<Add library="libgdal.a" />
+					<Add library="libboost_filesystem-mt.a" />
+					<Add library="libboost_timer-mt.a" />
+					<Add library="libgomp.a" />
+					<Add library="libws2_32.a" />
+					<Add directory="../../../WBSFMultiPlatform/lib/Debug64" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Releasex64/ImageCalculator" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Releasex64/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m64" />
+					<Add option="-std=gnu++20" />
+					<Add option="-ggdb" />
+					<Add option="-pthread" />
+					<Add option="-fopenmp" />
+					<Add option="-Wno-unknown-pragmas" />
+					<Add option="-Wno-deprecated-enum-enum-conversion" />
+					<Add option="-Wno-overloaded-virtual" />
+					<Add option="-Wno-unused-result" />
+					<Add option="-DNDEBUG" />
+					<Add option="-DBOOST_PROCESS_USE_STD_FS" />
+					<Add option="-DMUPARSER_STATIC" />
+					<Add directory="../../../WBSFMultiPlatform/src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m64" />
+					<Add library="libGeomatic.a" />
+					<Add library="libBasic.a" />
+					<Add library="libgdal.a" />
+					<Add library="libboost_filesystem-mt.a" />
+					<Add library="libboost_timer-mt.a" />
+					<Add library="libgomp.a" />
+					<Add library="libws2_32.a" />
+					<Add directory="../../../WBSFMultiPlatform/lib/Release64" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../ImageCalculator.cpp" />
+		<Unit filename="../ImageCalculator.h" />
+		<Unit filename="../ImageCalculatorApp.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

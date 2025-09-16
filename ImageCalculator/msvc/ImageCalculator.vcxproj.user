@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerWorkingDirectory>D:\Travaux\Landsat\Landsat(2000-2018)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>.\Input\Median_2000-2018.vrt .\Output\Median_2000.vrt -e "NBR=0,num=(i1b4-i1b6),den=(i1b4+i1b6),NBR=num/den" -e "B1=i1b1" -e "B2=i1b2" -of VRT -overwrite -co "COMPRESS=LZW" -multi </LocalDebuggerCommandArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>.\Input\Median_2000-2018.vrt .\Output\Median_2000.vrt -e "NBR=0,num=(i1b4-i1b6),den=(i1b4+i1b6),NBR=num/den" -e "B1=i1b1" -e "B2=i1b2" -of VRT -overwrite -co "COMPRESS=LZW" -te 1022538.9 6663106.0 1040929.5 6676670.7 -multi </LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerWorkingDirectory>D:\Travaux\Landsat\Landsat(2000-2018)</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
 </Project>

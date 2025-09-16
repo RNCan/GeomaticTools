@@ -1,20 +1,25 @@
 //***********************************************************************
 #pragma once
 
-#include <boost/dynamic_bitset.hpp>
 #include <deque>
-#include "geomatic/UtilGDAL.h"
-#include "geomatic/LandsatDataset2.h"
+#include <set>
+#include <boost/dynamic_bitset.hpp>
+#include <SDKDDKVer.h>
+
+
+#include "Geomatic/UtilGDAL.h"
+#include "Geomatic/ImageParser.h"
 
 
 namespace WBSF
 {
 
+
 class CImageCalculatorOption : public CBaseOptions
 {
 public:
 
-    enum TFilePath		{ INPUT_FILE_PATH, OUTPUT_FILE_PATH, NB_FILE_PATH };
+    //enum TFilePath { INPUT_FILE_PATH, OUTPUT_FILE_PATH, NB_FILE_PATH };
 
 
     CImageCalculatorOption();
@@ -22,10 +27,12 @@ public:
     virtual ERMsg ProcessOption(int& i, int argc, char* argv[]);
 
 
-    std::vector<std::pair<std::string, std::string > > m_equations;
+    std::vector<std::string> m_equations;
 };
 
-typedef std::deque < std::vector<double>> OutputData;
+
+
+typedef std::deque < std::vector<float>> OutputData;
 
 //typedef std::pair<double, size_t> NBRPair;
 typedef std::vector<CGDALDatasetEx> CGDALDatasetExVector;
@@ -42,12 +49,20 @@ public:
     }
 
     ERMsg OpenAll(CGDALDatasetExVector& inputDS, CGDALDatasetEx& outputDS);
-    void ReadBlock(CGDALDatasetExVector& inputDS, int xBlock, int yBlock, CRasterWindow& bandHolder);
-    void ProcessBlock(int xBlock, int yBlock, const CRasterWindow& bandHolder, OutputData& outputData);
+    void ReadBlock(CGDALDatasetExVector& inputDS, int xBlock, int yBlock, std::deque<CRasterWindow>& windows);
+    void ProcessBlock(int xBlock, int yBlock, const std::deque<CRasterWindow>& windows, OutputData& outputData);
     void WriteBlock(int xBlock, int yBlock, CGDALDatasetEx& outputDS, OutputData& outputData);
-    void CloseAll(CGDALDatasetExVector& inputDS, CGDALDatasetEx& outputDS);
+    ERMsg CloseAll(CGDALDatasetExVector& inputDS, CGDALDatasetEx& outputDS);
+
+    //CVariableToData GetVariableToData(std::vector<std::pair<std::string, std::string > > equations);
+
+
 
     CImageCalculatorOption m_options;
+
+    std::deque < std::deque< CImageParser > > m_parser;
+    std::deque < boost::dynamic_bitset<> > m_bands_to_read;
+
 
     static const char* VERSION;
     static const size_t NB_THREAD_PROCESS;
