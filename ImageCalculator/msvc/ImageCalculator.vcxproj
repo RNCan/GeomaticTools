@@ -202,10 +202,10 @@
     <ClInclude Include="..\ImageCalculator.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\WBSFMultiPlatform\build\msvc\Basic.vcxproj">
+    <ProjectReference Include="..\..\..\WBSF\build\msvc\Basic.vcxproj">
       <Project>{6ea02a3c-e845-4db1-a86d-80b9fae21101}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\WBSFMultiPlatform\build\msvc\Geomatic.vcxproj">
+    <ProjectReference Include="..\..\..\WBSF\build\msvc\Geomatic.vcxproj">
       <Project>{d1e68747-c1a3-4d7a-ab38-1631be44e796}</Project>
     </ProjectReference>
   </ItemGroup>
